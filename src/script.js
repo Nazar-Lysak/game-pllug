@@ -114,7 +114,7 @@ function clickOnCard (e) {
         }, 1000)
         if (closedCards === 0) {
             setTimeout(() => {
-                popupText.innerHTML = `Thanks you ${userName}, you count is ${clicksValues}, and yor time is ${timermin} min ${timerSec} sec.`;
+                popupText.innerHTML = `Thank you ${userName}, you count is ${clicksValues}, and your time is ${timermin} min ${timerSec} sec.`;
             }, 1000)
             setTimeout(() => {
                 popapWrap.style.zIndex = '10';

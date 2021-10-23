@@ -25,7 +25,6 @@ body.toggleGame {
     width: 100%;
     height: 95vh;
     margin: 20px;
-    background: linear-gradient(90deg, #29323C 0%, #485563 100%);
     box-shadow: -8px -8px 20px #2A333D, 10px 7px 20px #475462;
     border-radius: 10px;
     padding: 40px;
@@ -170,19 +169,20 @@ body.toggleGame {
     padding: 20px 40px;
     height: 40%;
     width: 40%;
-    background: #C0C0C0;
+    background: linear-gradient(118.38deg, #29323C -4.6%, #485563 200.44%);
     border-radius: 10px;
     transition: 1s;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border: 2px solid #C0C0C0;
 
 }
 
 .popupText {
     text-align: center;
     font-size: 30px;
-    color: #485563;
+    color: #ffff;
     text-shadow: 1px 1px #2A333D;
 }
 
