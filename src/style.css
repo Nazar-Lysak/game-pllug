@@ -39,14 +39,28 @@ body.toggleGame {
 
 .startGame {
     height: 250px;
-    padding: 30px 20px 0 20px;
+    padding: 0 20px;
     display: flex;
+    justify-content: flex-start;
     flex-direction: column;
     border: 2px solid #C0C0C0;
     border-radius: 10px;
     background: linear-gradient(118.38deg, #29323C -4.6%, #485563 200.44%);
     transition: margin 0.5s ease-out;
     box-shadow: -8px -8px 20px #2A333D, 10px 7px 20px #475462;
+}
+
+.enterError {
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    color: red;
+    min-height: 45px;
+    font-size: 24px;
+    opacity: 0;
+    transition: .5s;
 }
 
 .input {

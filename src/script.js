@@ -12,6 +12,7 @@ const body = document.querySelector('body');
 const inputName = document.querySelector('.input');
 const btnStartGame = document.querySelector('.btnStart');
 const btnRestart = document.querySelector('.btnRestart');
+const validName = document.querySelector('.enterError');
 const field = document.querySelector('.field');
 
 const randonCardsArray = dataCards.sort(makeRandomCards);
@@ -25,8 +26,12 @@ let userName = "";
 
 makeRandomCards();
 
-function runTimer() {
+inputName.oninput = () => {
+    userName = inputName.value;
+    validName.style.opacity = "0";
+}
 
+function runTimer() {
     timerSec++;
     if(timerSec === 60) {
         timermin++;
@@ -37,7 +42,6 @@ function runTimer() {
     }if( timerSec >= 10) {
         timer.innerHTML = `0${timermin}:${timerSec}`;
     }
-
 }
 
 const createCard = () => {
@@ -52,6 +56,10 @@ const createCard = () => {
 }
 
 btnStartGame.addEventListener('click', () => {
+    if(userName.length < 5) {
+        validName.style.opacity = "1";
+        return false;
+    }
     body.classList.toggle('toggleGame');
     setInterval(runTimer,1000);
     userName = inputName.value;
@@ -62,10 +70,9 @@ btnStartGame.addEventListener('click', () => {
 
 btnRestart.addEventListener('click', () => {
     body.classList.remove('toggleGame');
-    setTimeout(()=>{
+    setTimeout(()=> {
         location.reload();
     },700)
-
 })
 
 let count = 0;
@@ -73,8 +80,6 @@ let currCard = "";
 let prevCard = "";
 
 field.addEventListener('click', clickOnCard);
-
-
 
 function clickOnCard (e) {
     e.target.classList.add('active');
@@ -109,7 +114,7 @@ function clickOnCard (e) {
         }, 1000)
         if (closedCards === 0) {
             setTimeout(() => {
-                popupText.innerHTML = `Thanks you ${userName}, you count is ${clicksValues}, and yor time is ${timermin}:${timerSec} sec.`;
+                popupText.innerHTML = `Thanks you ${userName}, you count is ${clicksValues}, and yor time is ${timermin} min ${timerSec} sec.`;
             }, 1000)
             setTimeout(() => {
                 popapWrap.style.zIndex = '10';
