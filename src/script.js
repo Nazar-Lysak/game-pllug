@@ -16,6 +16,7 @@ const field = document.querySelector('.field');
 
 const randonCardsArray = dataCards.sort(makeRandomCards);
 
+let timermin = 0;
 let timerSec = 0;
 let clicksValues = 0;
 let cardsArray = [];
@@ -25,8 +26,18 @@ let userName = "";
 makeRandomCards();
 
 function runTimer() {
+
     timerSec++;
-    timer.innerHTML = timerSec;
+    if(timerSec === 60) {
+        timermin++;
+        timerSec = 0;
+    }
+    if(timerSec < 10) {
+        timer.innerHTML = `0${timermin}:0${timerSec}`;
+    }if( timerSec >= 10) {
+        timer.innerHTML = `0${timermin}:${timerSec}`;
+    }
+
 }
 
 const createCard = () => {
@@ -63,8 +74,9 @@ let prevCard = "";
 
 field.addEventListener('click', clickOnCard);
 
-function clickOnCard (e) {
 
+
+function clickOnCard (e) {
     e.target.classList.add('active');
     e.target.classList.remove('hidden');
     field.classList.remove('active');
@@ -97,7 +109,7 @@ function clickOnCard (e) {
         }, 1000)
         if (closedCards === 0) {
             setTimeout(() => {
-                popupText.innerHTML = `Thanks you ${userName}, you count is ${clicksValues}, and yor time is ${timerSec} sec.`;
+                popupText.innerHTML = `Thanks you ${userName}, you count is ${clicksValues}, and yor time is ${timermin}:${timerSec} sec.`;
             }, 1000)
             setTimeout(() => {
                 popapWrap.style.zIndex = '10';

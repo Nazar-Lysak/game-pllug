@@ -26,32 +26,3 @@ const dataCards = [
 ];
 
 export default dataCards;
-
-
-
-
-
-
-// function overloadedFunc(x = [1, 2, 3], y = 2, z) {
-
-//     // console.log(z)
-//     return Array.isArray(x) ? x.map(el => el * y) : x * y;
-// }
-
-
-
-
-function overloadedFunc(x, y, fr = calc) {
-    console.log(x, y, fr)
-}
-
-function calc(arr = [1, 2, 3], num = 2) {
-    return Array.isArray(arr) ? arr.map(el => el * num) : arr * num;
-}
-
-console.log(overloadedFunc());             // [2, 4, 6]
-console.log(overloadedFunc([2, 4, 6, 8])); // [4, 8, 12, 16]
-console.log(overloadedFunc([2, 4, 6], 3)); // [6, 12, 18]
-console.log(overloadedFunc(10));           // 20
-console.log(overloadedFunc(8, 3));         // 24
-console.log(overloadedFunc(undefined, undefined));         // 24
